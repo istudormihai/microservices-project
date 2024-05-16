@@ -6,6 +6,7 @@ from flask import g
 from flask.sessions import SecureCookieSessionInterface
 from flask_login import user_loaded_from_request
 import models
+from models import init_app
 from routes import user_blueprint
 
 app = Flask(__name__)
@@ -50,4 +51,4 @@ class CustomSessionInterface(SecureCookieSessionInterface):
         return super(CustomSessionInterface, self).save_session(*args, **kwargs)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port = 5001)
