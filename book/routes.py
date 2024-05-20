@@ -6,8 +6,8 @@ book_blueprint = Blueprint('book_api_routes', __name__, url_prefix='/api/book')
 @book_blueprint.route('/all', methods=['GET'])
 def get_all_books():
     all_books = Book.query.all()
-    result = [book.serialize() for book in all_books]
-    response = { 'result': result }
+    results = [book.serialize() for book in all_books]
+    response = { 'results': results }
     return jsonify(response)
 
 @book_blueprint.route('/create', methods=['POST'])

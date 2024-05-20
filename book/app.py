@@ -1,6 +1,6 @@
 from flask import Flask
 from routes import book_blueprint
-from models import db, init_app
+from models import db, init_app, Book
 from flask_migrate import Migrate
 
 import os

@@ -25,8 +25,10 @@ def index():
         session['order'] = OrderClient.get_order_from_session()
     try:
         books = BookClient.get_books()
-    except:
-        books = {'result': []}
+        print("Fetched books:", books)  # Debug: Print the books dictionary to console
+    except Exception as e:
+        print(f"Error fetching books: {e}")  # Debug: Print any errors
+        books = {'results': []}
 
     return render_template('index.html', books=books)
 
@@ -137,4 +139,4 @@ def thank_you():
     session.pop('order', None)
     flash("Thank you for shopping with us")
 
-    return redirect(url_for('thankyou.html'))
+    return render_template('thankyou.html')
