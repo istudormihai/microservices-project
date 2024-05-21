@@ -13,11 +13,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '8avUhoMcq50TCtFDeb5nEw'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Define the database URI
 database_file = os.path.join(os.getcwd(), 'database', 'user.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{database_file}'
 
-# Ensure the database directory exists
 os.makedirs(os.path.dirname(database_file), exist_ok=True)
 
 models.init_app(app)
